@@ -1,0 +1,53 @@
+/* Quiz Container */
+.quiz-container {
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 400px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+}
+
+/* Score Container */
+.score-container {
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+/* Question Number */
+.question-number {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+/* Question Text */
+.question-text {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+/* Answer Options */
+.answer-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Option Button */
+.option-button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+/* Hover and Active State for Option Button */
+.option-button:hover, .option-button:active {
+    background-color: #2980b9;
+}
