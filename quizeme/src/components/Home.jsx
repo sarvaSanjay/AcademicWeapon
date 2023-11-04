@@ -1,7 +1,6 @@
 import '../App.css'
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
-import logo from '../assests/logo.png';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
@@ -27,8 +26,8 @@ function Home(){
                     <Col></Col>
                 </Row>
                 <Row className='buttons'>
-                    <Col> <Button color='#F6F6E9' size='lg'>Upload PDF</Button></Col>
-                    <Col> <Button color='#F6F6E9' size='lg'>Scan Notes</Button></Col>
+                    <Col> <Button size='lg'>Upload PDF</Button></Col>
+                    <Col> <Button size='lg'>Scan Notes</Button></Col>
                     <Col></Col>
                     <Col></Col>
                     <Col></Col>

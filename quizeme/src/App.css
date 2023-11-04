@@ -37,8 +37,12 @@
 /*}*/
 @font-face {
     font-family: Caveat;
-    src: url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap');
+    src: url('../src/assests/Caveat-VariableFont_wght.ttf');
     font-weight: 600;
+}
+@font-face {
+    font-family: Gagalin;
+    src: url('../src/assests/Gagalin-Regular.otf');
 }
 .brand{
     font-family: 'Caveat', cursive;
@@ -46,14 +50,17 @@
 .heading{
     padding-top: 5rem;
     font-size: 5rem;
+    font-family: Gagalin, serif;
 }
 .heading-2{
     font-size: 5rem;
+    font-family: Gagalin, serif;
 }
 .sub-heading{
     padding-top: 5rem;
     font-size: 2.5rem;
     padding-bottom: 2.5rem;
+    font-family: Gagalin, serif;
 }
 
 .buttons{
