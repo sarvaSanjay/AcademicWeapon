@@ -1,9 +1,24 @@
-
-
+import {useState} from "react";
 function Flashcard(props){
-  return(<div>
+  const [isFlipped, setFlipped] = useState(false);
 
-  </div>)
-}
+  const flipCard = () => {
+    setFlipped(!isFlipped);
+  };
+
+  return (
+      <div className='flashcard'>
+      <div className={`card ${isFlipped ? 'flipped' : ''}`} onClick={flipCard}>
+
+
+          {isFlipped?<div className="card-back">
+              {props.answer}
+          </div>:<div className="card-front">
+              {props.question}
+          </div>}
+      </div>
+      </div>
+  );
+  }
 
 export default Flashcard;

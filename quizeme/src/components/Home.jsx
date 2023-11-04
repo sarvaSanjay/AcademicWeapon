@@ -4,7 +4,13 @@ import Navbar from 'react-bootstrap/Navbar';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+import FlashCards from "./FlashCards";
+
 function Home(){
+    const SAMPLE= [{question:"Hi",answer:"1"},{question:"Bye",answer:"2"}]
+    function HandleClick(){
+        return(<FlashCards flashcards={SAMPLE} />)
+    }
     return(
         <div className='home'>
             <div>
@@ -27,7 +33,7 @@ function Home(){
                 </Row>
                 <Row className='buttons'>
                     <Col> <Button size='lg'>Upload PDF</Button></Col>
-                    <Col> <Button size='lg'>Scan Notes</Button></Col>
+                    <Col> <a href='/webcam'><Button size='lg'>Scan Notes</Button></a></Col>
                     <Col></Col>
                     <Col></Col>
                     <Col></Col>
