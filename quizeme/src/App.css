@@ -99,3 +99,11 @@ footer{
 .show{
     visibility: visible;
 }
+
+.home .text{
+    color: black;
+    font-family: 'Caveat', cursive;
+    border-radius: 0;
+    border: black;
+    font-size: 1.5rem;
+}

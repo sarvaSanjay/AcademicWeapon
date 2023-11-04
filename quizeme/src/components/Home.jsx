@@ -7,6 +7,7 @@ import Button from 'react-bootstrap/Button';
 import { useState, useEffect } from 'react';
 function Home(){
     const [showGenerate, setShowGenerate] = useState(false);
+    const [filename, setFilename] = useState('No file selected');
     let file = null;
     const handleFileUpload = () => {
         const input = document.createElement('input');
@@ -15,14 +16,14 @@ function Home(){
         input.onchange = (event) => {
             file = event.target.files[0];
             setShowGenerate(true);
-            alert(`Selected file - ${file.name}`);
+            setFilename(file.name);
             // Do something with the selected file
         };
         input.click();
     };
 
     return(
-        <div>
+        <div className='home'>
             <div>
         <Navbar className="navbar">
             <Container>
@@ -42,13 +43,18 @@ function Home(){
                     <Col></Col>
                 </Row>
                 <Row className='buttons'>
-                    <Col> <Button color='#F6F6E9' size='lg'>Upload PDF</Button></Col>
+                    <Col> <Button color='#F6F6E9' size='lg' onClick={handleFileUpload}>Upload PDF</Button></Col>
                     <Col> <Button color='#F6F6E9' size='lg'>Scan Notes</Button></Col>
-                    <Col> <Button color='#F6F6E9' size='lg' className={showGenerate ? 'show' : 'hide'}>Generate</Button></Col>
+                    <Col> <Button color='#F6F6E9' size='lg' className={showGenerate ? '' : 'hide'}>Generate</Button></Col>
                     <Col></Col>
                     <Col></Col>
                     <Col></Col>
                 </Row>
+                <div>
+                    <p className={showGenerate ? 'text' : 'hide'}>
+                        File Name: {filename}
+                    </p>
+                </div>
             </Container>
             <div>
 
