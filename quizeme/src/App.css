@@ -44,6 +44,9 @@
     font-family: Gagalin;
     src: url('../src/assests/Gagalin-Regular.otf');
 }
+.home{
+    background-color: #61A6AB;
+}
 .brand{
     font-family: 'Caveat', cursive;
 }
@@ -81,7 +84,12 @@ footer{
     font-family: 'Caveat', cursive;
     border-radius: 0;
     border: black;
+    font-size: 1.5rem;
 }
 .home button:hover {
     box-shadow: inset 400px 0 0 0 black;
+}
+
+.home span{
+    font-size: 2rem;
 }

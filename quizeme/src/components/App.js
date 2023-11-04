@@ -1,10 +1,20 @@
 import '../App.css';
 import Home from './Home';
+import Flashcard from "./Flashcard";
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+    Navigate,
+} from "react-router-dom";
+
 function App() {
   return (
-    <div className="App">
-      <Home></Home>
-    </div>
+    <Router>
+        <Routes>
+            <Route path='/' element={<Home />}></Route>
+         </Routes>
+    </Router>
   );
 }
 

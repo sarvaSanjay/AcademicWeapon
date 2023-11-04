@@ -10,7 +10,7 @@ function Home(){
             <div>
         <Navbar className="navbar">
             <Container>
-                <Navbar.Brand className='brand'>QuizMe</Navbar.Brand>
+                <Navbar.Brand className='brand' size='lg'>QuizMe</Navbar.Brand>
             </Container>
         </Navbar>
             </div>
