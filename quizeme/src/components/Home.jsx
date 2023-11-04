@@ -7,10 +7,6 @@ import Button from 'react-bootstrap/Button';
 import FlashCards from "./FlashCards";
 
 function Home(){
-    const SAMPLE= [{question:"Hi",answer:"1"},{question:"Bye",answer:"2"}]
-    function HandleClick(){
-        return(<FlashCards flashcards={SAMPLE} />)
-    }
     return(
         <div className='home'>
             <div>
