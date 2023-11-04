@@ -30,7 +30,7 @@ export async function createQuiz(pages){
     for(let i = 0; i < pages.length; i++){
         let page = pages[i];
         let miniQuiz = getQuizPerPage(page);
-        quiz.push(miniQuiz);
+        quiz.push(...miniQuiz);
     }
     return quiz;
 }
@@ -150,7 +150,7 @@ async function getQuizPerPage(page) {
     });
 
   console.log(process(completion.choices[0]['message']['content']));
-  return completion.choices[0]['message']['content'];
+  return process(completion.choices[0]['message']['content']);
 }
 
 function process(quizString){
