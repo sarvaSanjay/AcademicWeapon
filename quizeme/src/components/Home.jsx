@@ -5,22 +5,28 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import { useState, useEffect } from 'react';
+import { read_words } from '../ocr';
 function Home(){
     const [showGenerate, setShowGenerate] = useState(false);
     const [filename, setFilename] = useState('No file selected');
-    let file = null;
+    const [file, setFile] = useState(null);
     const handleFileUpload = () => {
         const input = document.createElement('input');
         input.type = 'file';
-        input.accept = 'application/pdf';
+        input.accept = 'image/*, application/pdf';
         input.onchange = (event) => {
-            file = event.target.files[0];
+            const selectedFile = event.target.files[0];
+            setFile(selectedFile);
             setShowGenerate(true);
-            setFilename(file.name);
+            setFilename(selectedFile.name);
             // Do something with the selected file
         };
         input.click();
     };
+
+    const generateFlashcards = () => {
+        read_words(file)
+    }
 
     return(
         <div className='home'>
@@ -45,7 +51,7 @@ function Home(){
                 <Row className='buttons'>
                     <Col> <Button color='#F6F6E9' size='lg' onClick={handleFileUpload}>Upload PDF</Button></Col>
                     <Col> <Button color='#F6F6E9' size='lg'>Scan Notes</Button></Col>
-                    <Col> <Button color='#F6F6E9' size='lg' className={showGenerate ? '' : 'hide'}>Generate</Button></Col>
+                    <Col> <Button color='#F6F6E9' size='lg' className={showGenerate ? '' : 'hide'} onClick={showGenerate ? generateFlashcards : () => {}}>Generate</Button></Col>
                     <Col></Col>
                     <Col></Col>
                     <Col></Col>
