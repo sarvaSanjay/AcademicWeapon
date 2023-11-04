@@ -7,7 +7,7 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 function Home(){
     return(
-        <div>
+        <div className='home'>
             <div>
         <Navbar className="navbar">
             <Container>
@@ -27,17 +27,17 @@ function Home(){
                     <Col></Col>
                 </Row>
                 <Row className='buttons'>
-                    <Col> <Button variant="light btn-lg">Upload PDF</Button></Col>
-                    <Col> <Button variant="light btn-lg">Scan Notes</Button></Col>
+                    <Col> <Button color='#F6F6E9' size='lg'>Upload PDF</Button></Col>
+                    <Col> <Button color='#F6F6E9' size='lg'>Scan Notes</Button></Col>
                     <Col></Col>
                     <Col></Col>
                     <Col></Col>
                     <Col></Col>
                 </Row>
             </Container>
-            <div>
+            <footer>
 
-            </div>
+            </footer>
         </div>
     )
 }

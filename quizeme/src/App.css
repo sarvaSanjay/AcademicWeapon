@@ -1,7 +1,6 @@
 .App {
     background-color: #61A6AB;}
 
-
 /*.App-logo {*/
 /*  height: 40vmin;*/
 /*  pointer-events: none;*/
@@ -44,10 +43,6 @@
 .brand{
     font-family: 'Caveat', cursive;
 }
-.button-home{
-    padding: 1.2rem;
-    background-color: #F6F6E9;
-}
 .heading{
     padding-top: 5rem;
     font-size: 5rem;
@@ -67,4 +62,19 @@
 
 .navbar{
     background-color: #F6F6E9;
+}
+footer{
+    height: 2.5rem;
+    background-color: #F6F6E9;
+}
+
+.home button{
+    background-color: #F6F6E9;
+    color: black;
+    font-family: 'Caveat', cursive;
+    border-radius: 0;
+    border: black;
+}
+.home button:hover {
+    box-shadow: inset 400px 0 0 0 black;
 }
