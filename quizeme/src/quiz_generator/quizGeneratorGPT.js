@@ -72,8 +72,7 @@ async function getQuizPerPage(page) {
     A) Paul Churchland
     B) Jerry Fodor
     C) John Searle
-    D) Alan Turing
-    
+    D) Alan Turing 
     Correct answer: C) John Searle
     
     Question 2: In which publication did the Chinese Room argument gain popularity in 1990?
@@ -81,7 +80,6 @@ async function getQuizPerPage(page) {
     B) Scientific American
     C) Rosenthal (ed.) 1991
     D) Turing's Paper Machine
-    
     Correct answer: B) Scientific American
     
     Question 3: Which philosopher(s) wrote the responding article "Could a Machine Think?"?
@@ -89,7 +87,6 @@ async function getQuizPerPage(page) {
     B) Patricia Churchland
     C) Both Paul and Patricia Churchland
     D) Jerry Fodor
-    
     Correct answer: C) Both Paul and Patricia Churchland
     
     Question 4: What is the main analogy used in the Chinese Room argument?
@@ -97,7 +94,6 @@ async function getQuizPerPage(page) {
     B) A computer following a program
     C) Manipulating Chinese symbols
     D) Turing's Paper Machine
-    
     Correct answer: A) A human following English instructions
     
     Question 5: What is the target of the Chinese Room argument?
@@ -105,7 +101,6 @@ async function getQuizPerPage(page) {
     B) Strong AI
     C) Psychology and linguistics
     D) Natural language understanding
-    
     Correct answer: B) Strong AI
     
     Question 6: According to Strong AI, computers can understand natural language and have which of the following capabilities?
@@ -113,7 +108,6 @@ async function getQuizPerPage(page) {
     B) Making clever moves
     C) Understanding language
     D) All of the above
-    
     Correct answer: D) All of the above
     
     Question 7: What is the main difference between weak AI and strong AI?
@@ -121,7 +115,6 @@ async function getQuizPerPage(page) {
     B) Weak AI claims computers can simulate mental abilities, while strong AI claims they can truly understand
     C) Weak AI is based on syntax, while strong AI is based on semantics
     D) Weak AI is practical, while strong AI is theoretical
-    
     Correct answer: B) Weak AI claims computers can simulate mental abilities, while strong AI claims they can truly understand
     
     Question 8: The Chinese Room argument does NOT aim to prove that no machine can think but is specifically directed at:
@@ -129,7 +122,6 @@ async function getQuizPerPage(page) {
     B) Human cognition
     C) Formal computations on symbols
     D) Brains and their thinking capabilities
-    
     Correct answer: C) Formal computations on symbols
     
     Question 9: Who did Searle say that brains think?
@@ -137,7 +129,6 @@ async function getQuizPerPage(page) {
     B) Humans
     C) Machines
     D) Animals
-    
     Correct answer: B) Humans
     
     Question 10: What does Searle acknowledge when arguing against Strong AI?
@@ -145,7 +136,6 @@ async function getQuizPerPage(page) {
     B) Brains are machines
     C) Formal computations can produce thought
     D) Weak AI is obsolete
-    
     Correct answer: B) Brains are machines
     `
 
@@ -159,8 +149,25 @@ async function getQuizPerPage(page) {
         model: "gpt-3.5-turbo",
     });
 
-  console.log(completion.choices[0]['message']['content']);
+  console.log(process(completion.choices[0]['message']['content']));
   return completion.choices[0]['message']['content'];
+}
+
+function process(quizString){
+    const listOfStrings = quizString.split("\n");
+    let quiz = []
+    for(let i = 0; i<listOfStrings.length; i+=7){
+        let question = {
+            question: listOfStrings[i].trim().slice(listOfStrings[i].trim().indexOf(':') + 2),
+            optionA: listOfStrings[i + 1].trim().slice(3),
+            optionB: listOfStrings[i + 2].trim().slice(3),
+            optionC: listOfStrings[i + 3].trim().slice(3),
+            optionD: listOfStrings[i + 4].trim().slice(3),
+            correctAnswer: listOfStrings[i + 5].trim().slice(19)
+        }
+        quiz.push(question);
+    }
+    return quiz;
 }
 
 createQuiz([data]);
