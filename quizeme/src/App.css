@@ -89,7 +89,13 @@ footer{
 .home button:hover {
     box-shadow: inset 400px 0 0 0 black;
 }
-
 .home span{
     font-size: 2rem;
+}
+.hide{
+    visibility: hidden;
+}
+
+.show{
+    visibility: visible;
 }

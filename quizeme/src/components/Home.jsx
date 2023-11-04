@@ -4,9 +4,25 @@ import Navbar from 'react-bootstrap/Navbar';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+import { useState, useEffect } from 'react';
 function Home(){
+    const [showGenerate, setShowGenerate] = useState(false);
+    let file = null;
+    const handleFileUpload = () => {
+        const input = document.createElement('input');
+        input.type = 'file';
+        input.accept = 'application/pdf';
+        input.onchange = (event) => {
+            file = event.target.files[0];
+            setShowGenerate(true);
+            alert(`Selected file - ${file.name}`);
+            // Do something with the selected file
+        };
+        input.click();
+    };
+
     return(
-        <div className='home'>
+        <div>
             <div>
         <Navbar className="navbar">
             <Container>
@@ -26,17 +42,17 @@ function Home(){
                     <Col></Col>
                 </Row>
                 <Row className='buttons'>
-                    <Col> <Button size='lg'>Upload PDF</Button></Col>
-                    <Col> <Button size='lg'>Scan Notes</Button></Col>
-                    <Col></Col>
+                    <Col> <Button color='#F6F6E9' size='lg'>Upload PDF</Button></Col>
+                    <Col> <Button color='#F6F6E9' size='lg'>Scan Notes</Button></Col>
+                    <Col> <Button color='#F6F6E9' size='lg' className={showGenerate ? 'show' : 'hide'}>Generate</Button></Col>
                     <Col></Col>
                     <Col></Col>
                     <Col></Col>
                 </Row>
             </Container>
-            <footer>
+            <div>
 
-            </footer>
+            </div>
         </div>
     )
 }
