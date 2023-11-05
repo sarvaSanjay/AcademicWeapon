@@ -8,7 +8,7 @@ function Flashcards(props) {
     const [isQuiz,setIsQuiz]= useState(false)
     return (
         <div className='flashcards'>
-            <a href = '/'><Button>Back To Home</Button></a>
+            <a href = '/AcademicWeapon'><Button>Back To Home</Button></a>
             <h1 className='heading'>FlashCards:</h1>
         <Carousel interval={null}>
             {props.flashcards.map(flashcard => {return (<Carousel.Item><Flashcard question ={flashcard.question} answer={flashcard.answer} /></Carousel.Item>)})};
