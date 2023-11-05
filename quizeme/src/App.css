@@ -101,6 +101,10 @@ footer{
     perspective: 1000px;
     cursor: pointer;
     transition: transform 0.5s;
+    font-family: 'Caveat', cursive;
+    font-size: 2rem;
+    padding: 8.5rem 0;
+    text-align: center;
 
 }
 
@@ -123,7 +127,9 @@ footer{
 }
 
 .flashcards{
-    background-color: #61A6AB;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
 }
 .flashcards div .card{
    margin: auto;
@@ -153,7 +159,9 @@ footer{
 }
 
 .webcam-container {
-    background-color: #61A6AB;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
     padding: 5rem;
     align-items: center;
 }

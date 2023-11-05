@@ -59,7 +59,7 @@ function Home(){
               }
               response.json().then((data) => {
                 console.log(data);
-                setQuiz(data);
+                setFlashcards(data);
                 setShowState(1);
               });
             })

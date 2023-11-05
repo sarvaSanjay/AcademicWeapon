@@ -1,6 +1,7 @@
 import Carousel from 'react-bootstrap/Carousel';
 import Flashcard from "./Flashcard";
 import Button from "react-bootstrap/Button";
+import '../App.css'
 import {useState} from "react";
 
 function Flashcards(props) {

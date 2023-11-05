@@ -36,7 +36,7 @@ function Quiz(props) {
     const [score, setScore] = useState(0);
 
     const handleAnswerOptionClick = (answer) => {
-        if (answer === questions[currentQuestion].answer) {
+        if (answer === questions[currentQuestion].correctAnswer) {
             setScore(score + 1);
         }
 
