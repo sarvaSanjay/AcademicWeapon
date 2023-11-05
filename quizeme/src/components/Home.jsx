@@ -9,7 +9,6 @@ import Quiz from "./Quiz";
 import TypingAnimation from './TypingAnimation';
 import WebcamCapture from "./WebcamCapture";
 import { useState, useEffect } from 'react';
-import { read_from_image } from '../ocr';
 
 
 function Home(){
