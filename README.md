@@ -58,3 +58,4 @@ These lessons not only helped us overcome the challenges we encountered but also
 - JavaScript: 📜
 - HTML/CSS: 🌐🎨
 - Azure: ☁️
+- Python Flask: 🐍🌐
