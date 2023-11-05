@@ -29,7 +29,7 @@ export async function createQuiz(pages){
     let quiz = []
     for(let i = 0; i < pages.length; i++){
         let page = pages[i];
-        let miniQuiz = getQuizPerPage(page);
+        let miniQuiz = await getQuizPerPage(page);
         quiz.push(...miniQuiz);
     }
     return quiz;
