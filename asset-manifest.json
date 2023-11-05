@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/AcademicWeapon/static/css/main.9d5eb737.css",
+    "main.js": "/AcademicWeapon/static/js/main.ae669693.js",
+    "static/js/787.c07eae08.chunk.js": "/AcademicWeapon/static/js/787.c07eae08.chunk.js",
+    "static/media/Caveat-VariableFont_wght.ttf": "/AcademicWeapon/static/media/Caveat-VariableFont_wght.31f0a02d84d42627c894.ttf",
+    "static/media/Gagalin-Regular.otf": "/AcademicWeapon/static/media/Gagalin-Regular.6bc229310548650a1f24.otf",
+    "index.html": "/AcademicWeapon/index.html",
+    "main.9d5eb737.css.map": "/AcademicWeapon/static/css/main.9d5eb737.css.map",
+    "main.ae669693.js.map": "/AcademicWeapon/static/js/main.ae669693.js.map",
+    "787.c07eae08.chunk.js.map": "/AcademicWeapon/static/js/787.c07eae08.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9d5eb737.css",
+    "static/js/main.ae669693.js"
+  ]
+}
