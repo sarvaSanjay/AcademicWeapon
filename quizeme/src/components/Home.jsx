@@ -25,7 +25,7 @@ function Home(){
                 <div>
                     <Navbar className="navbar">
                         <Container>
-                            <Navbar.Brand className='brand' size='lg'>QuizMe</Navbar.Brand>
+                            <Navbar.Brand className='brand' size='lg'>Academic Weapon</Navbar.Brand>
                         </Container>
                     </Navbar>
                 </div>
@@ -34,7 +34,7 @@ function Home(){
                         <Col className='heading'>SIMPLIFY STUDYING:</Col>
                     </Row>
                     <Row className='heading-2'>
-                        <Col>NOTES IN, FLASHCARDS OUT</Col>
+                        <Col>NOTES IN, FLASHCARDS AND QUIZZES OUT</Col>
                     </Row>
                     <Row>
                         <Col className='sub-heading'> UPLOAD NOTES BELOW</Col>
