@@ -56,7 +56,7 @@ body {
     font-family: Gagalin, serif;
 }
 .heading-2{
-    font-size: 5rem;
+    font-size: 4rem;
     font-family: Gagalin, serif;
 }
 .sub-heading{
@@ -174,4 +174,19 @@ footer{
 .btn-cam .webcam-btn{
     margin-top: 1rem;
     margin-left: 45%;
+}
+
+.flashcards button{
+    background-color: #F6F6E9;
+    color: black;
+    font-family: 'Caveat', cursive;
+    border-radius: 0;
+    border: black;
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-left: 85%;
+}
+
+.flashcards button:hover {
+    box-shadow: inset 400px 0 0 0 black;
 }
