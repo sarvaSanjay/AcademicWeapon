@@ -5,7 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import { useState, useEffect } from 'react';
-import { read_words } from '../ocr';
+import { read_from_image } from '../ocr';
 function Home(){
     const [showGenerate, setShowGenerate] = useState(false);
     const [filename, setFilename] = useState('No file selected');
@@ -25,7 +25,7 @@ function Home(){
     };
 
     const generateFlashcards = () => {
-        read_words(file)
+        read_from_image(file)
     }
 
     return(
@@ -49,7 +49,7 @@ function Home(){
                     <Col></Col>
                 </Row>
                 <Row className='buttons'>
-                    <Col> <Button color='#F6F6E9' size='lg' onClick={handleFileUpload}>Upload PDF</Button></Col>
+                    <Col> <Button color='#F6F6E9' size='lg' onClick={handleFileUpload}>Upload PDF/Image</Button></Col>
                     <Col> <Button color='#F6F6E9' size='lg'>Scan Notes</Button></Col>
                     <Col> <Button color='#F6F6E9' size='lg' className={showGenerate ? '' : 'hide'} onClick={showGenerate ? generateFlashcards : () => {}}>Generate</Button></Col>
                     <Col></Col>
