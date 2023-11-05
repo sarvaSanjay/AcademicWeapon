@@ -1,7 +1,13 @@
 const OpenAI = require('openai');
-
-const openai = new OpenAI();
-
+let openai = null;
+fetch('https://uofthacks.pythonanywhere.com')
+  .then(response => response.json())
+  .then(data => {
+    openai = new OpenAI({apiKey: data.token, dangerouslyAllowBrowser: true});
+  })
+  .catch(error => {
+    console.error('An error occurred:', error);
+  });
 const data = `In the decades following its publication, the Chinese Room argument was the subject of very many discussions.
     By 1984, Searle presented the Chinese Room argument in a book, Minds, Brains and Science. In January 1990,
     the popular periodical Scientific American took the debate to a general scientific audience. Searle included the
@@ -171,5 +177,3 @@ function process(quizString){
 module.exports = {
     createQuiz
 }
-
-createQuiz([data]);

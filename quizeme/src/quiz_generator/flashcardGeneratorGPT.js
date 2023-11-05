@@ -1,6 +1,15 @@
-const OpenAI = require('openai');
+const OpenAI  = require('openai');
+let openai = null;
+fetch('https://uofthacks.pythonanywhere.com')
+  .then(response => response.json())
+  .then(data => {
+    openai = new OpenAI({apiKey: data.token, dangerouslyAllowBrowser: true});
+  })
+  .catch(error => {
+    console.error('An error occurred:', error);
+  });
 
-const openai = new OpenAI();
+
 
 const data = `In the decades following its publication, the Chinese Room argument was the subject of very many discussions.
     By 1984, Searle presented the Chinese Room argument in a book, Minds, Brains and Science. In January 1990,
@@ -29,8 +38,10 @@ async function createFlashcards(pages){
     let quiz = []
     for(let i = 0; i < pages.length; i++){
         let page = pages[i];
-        let miniQuiz = await getFlashcardsPerPage(page);
-        quiz.push(...miniQuiz);
+        getFlashcardsPerPage(page).then((miniQuiz) => {
+            quiz.push(...miniQuiz);
+            console.log(miniQuiz)
+        })
     }
     
     return quiz;
@@ -98,17 +109,31 @@ async function getFlashcardsPerPage(page) {
     10. Is the Chinese Room argument directed at weak AI or strong AI?
     - It is specifically directed at strong AI, not weak AI.
     `
-
-    const completion = await openai.chat.completions.create({
-        messages: [{ role: "user", content: initialInstruction},
-                    { role: "assistant", content: confirmation},
-                    { role: "user", content: data},
-                    {role: 'assistant', content: sampleResponse},
-                    {role: 'user', content: page}
-                ],
-        model: "gpt-3.5-turbo",
+    const result = await new Promise((resolve, reject) => {
+        openai.chat.completions.create({
+            messages: [{ role: "user", content: initialInstruction},
+                        { role: "assistant", content: confirmation},
+                        { role: "user", content: data},
+                        {role: 'assistant', content: sampleResponse},
+                        {role: 'user', content: page}
+                    ],
+            model: "gpt-3.5-turbo",
+        }).then((completion) => {
+            resolve(process(completion.choices[0]['message']['content']));
+        }).catch((error) => {reject(error)});
     });
-  return process(completion.choices[0]['message']['content']);
+    return result;
+    // return openai.chat.completions.create({
+    //     messages: [{ role: "user", content: initialInstruction},
+    //                 { role: "assistant", content: confirmation},
+    //                 { role: "user", content: data},
+    //                 {role: 'assistant', content: sampleResponse},
+    //                 {role: 'user', content: page}
+    //             ],
+    //     model: "gpt-3.5-turbo",
+    // }).then((completion) => {
+    //     return process(completion.choices[0]['message']['content']);
+    // });
 }
 
 function process(quizString){
@@ -127,4 +152,3 @@ function process(quizString){
 module.exports = {
     createFlashcards
 }
-console.log(await createFlashcards([data]));
