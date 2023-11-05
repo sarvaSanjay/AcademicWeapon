@@ -25,8 +25,14 @@ function Home(){
     };
 
     const generateFlashcards = () => {
-        read_from_image(file)
-    }
+        const array_text = read_from_image(file).then(text => {
+            console.log('Recognized text:', text);
+            // You can use the recognized text here
+          })
+          .catch(error => {
+            console.error('Recognition error:', error);
+            });
+    }   
 
     return(
         <div className='home'>
