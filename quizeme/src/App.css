@@ -1,4 +1,4 @@
-.App {
+body {
     background-color: #61A6AB;}
 
 /*.App-logo {*/
@@ -127,4 +127,42 @@ footer{
 }
 .flashcards div .flashcard{
     padding: 5rem;
+}
+
+.flashcards .heading{
+    font-size: 4rem;
+    font-family: Gagalin, serif;
+    text-align: center;
+}
+
+.export .hide{
+    visibility: hidden;
+}
+
+.webcam-container button{
+    background-color: #F6F6E9;
+    color: black;
+    font-family: 'Caveat', cursive;
+    border-radius: 0;
+    border: black;
+    font-size: 1.5rem;
+}
+
+.webcam-container button:hover {
+    box-shadow: inset 400px 0 0 0 black;
+    color: white;
+}
+
+.webcam-container {
+    background-color: #61A6AB;
+    padding: 5rem;
+    align-items: center;
+}
+
+.webcam-container .webcam-img{
+    margin-left: 25%;
+}
+.btn-cam .webcam-btn{
+    margin-top: 1rem;
+    margin-left: 45%;
 }

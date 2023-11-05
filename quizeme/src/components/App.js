@@ -18,6 +18,10 @@ function App() {
             <Route path='/' element={<Home></Home>}></Route>
             <Route path='/flashcards' element={<FlashCards  flashcards={SAMPLE} />}></Route>
             <Route path="/webcam" element={<WebcamCapture />}></Route>
+            <Route
+                path="*"
+                element={<Navigate to="/" />}
+            />
          </Routes>
     </Router>
   );

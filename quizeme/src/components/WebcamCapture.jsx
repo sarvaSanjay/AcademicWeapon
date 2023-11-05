@@ -31,19 +31,19 @@ const WebcamCapture = () => {
 
                     audio={false}
 
-                    height={200}
+                    height={500}
 
                     ref={webcamRef}
 
                     screenshotFormat="image/jpeg"
 
-                    width={220}
+                    width={600}
 
                     videoConstraints={videoConstraints}
 
                 /> : <img src={image}/>}
             </div>
-            <div>
+            <div className='btn-cam'>
                 {image !== '' ?
 
                     <button onClick={(e) => {
