@@ -18,6 +18,7 @@ function Home(){
     const [file, setFile] = useState(null);
     const [showState, setShowState] = useState(0);
     const [sample,setSample]=useState(null)
+    const [text, setText] = useState('');
 
     const [flashcards, setFlashcards] = useState([]);
     const [quiz, setQuiz] = useState([{
@@ -39,12 +40,41 @@ function Home(){
             setShowGenerate(true);
             setFilename(selectedFile.name);
             // Do something with the selected file
-        };
-        input.click();
-    };
+            // Create a new FormData object
+            alert('Uploading file...');
+            const formData = new FormData();
 
+            // Append the file to the form data object
+            formData.append('file', selectedFile); // 'file' is the name of the field that the server expects
+            console.log(formData);
+            // Make a POST request with the FormData
+            fetch('https://uofthacks.pythonanywhere.com/ocr', {
+              method: 'POST',
+              body: formData,
+            })
+              .then((response) => {
+                if (response.ok) {
+                   return response.json();
+                } else {
+                  throw new Error('File upload failed');
+                }
+              })
+              .then((data) => {
+                // Handle the response data
+                setText(data); alert('File uploaded successfully')
+              })
+              .catch((error) => {
+                // Handle errors
+                console.error(error);
+              });
+
+            };
+            input.click();
+
+        };
+    
     const generateFlashcards = () => {
-        const data = 'Binary search is an algorithm that finds the position of a target value within a sorted array. Binary search compares the target value to the middle element of the array. If they are not equal, the half in which the target cannot lie is eliminated and the search continues on the remaining half, again taking the middle element to compare to the target value, and repeating this until the target value is found. If the search ends with the remaining half being empty, the target is not in the array.'
+        const data = text.text;
         fetch('https://uofthacks.pythonanywhere.com/flashcards', {
             method: 'POST',
             headers: {
@@ -71,10 +101,10 @@ function Home(){
             });
         
     }
-
+        
     const generateQuiz = () => {
-        const data = 'Binary search is an algorithm that finds the position of a target value within a sorted array. Binary search compares the target value to the middle element of the array. If they are not equal, the half in which the target cannot lie is eliminated and the search continues on the remaining half, again taking the middle element to compare to the target value, and repeating this until the target value is found. If the search ends with the remaining half being empty, the target is not in the array.'
-        fetch('https://uofthacks.pythonanywhere.com/quiz', {
+      const data = text.text;  
+      fetch('https://uofthacks.pythonanywhere.com/quiz', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
