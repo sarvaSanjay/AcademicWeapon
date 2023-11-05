@@ -1,0 +1,72 @@
+.bg {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+    height: 100vh;
+	animation: gradient 15s ease infinite;
+    display: flex;
+    align-items: center;
+}
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+/* Quiz Container */
+.quiz-container {
+    background-color: #d1e8e2;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 400px;
+    margin: 0 auto;
+    font-family: 'Caveat', cursive;
+}
+
+/* Score Container */
+.score-container {
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+/* Question Number */
+.question-number {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+/* Question Text */
+.question-text {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+/* Answer Options */
+.answer-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Option Button */
+.option-button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+/* Hover and Active State for Option Button */
+.option-button:hover, .option-button:active {
+    background-color: #2980b9;
+}
