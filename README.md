@@ -35,7 +35,7 @@ As we reflect on our journey, there are certain accomplishments that stand out:
 
 - Meeting Project Scope: We take immense pride in successfully completing our project within the predefined scope. This means we effectively delivered all the features and functionalities we initially set out to achieve. This accomplishment signifies our commitment to project management and execution. 🌟🏆
 - Effective Collaboration: Our team's ability to work seamlessly and cohesively throughout the project is another accomplishment we hold in high regard. The synergy among team members, clear communication, and shared vision led to a harmonious and productive work environment. 🤝💼
-- Innovation and Problem-Solving: We encountered and overcame various challenges during the project, which allowed us to showcase our innovation and problem-solving skills. Our ability to find creative solutions and adapt to unforeseen circumstances is something we're proud of. 💡🔧
+- Innovation and Problem-Solving: We encountered and overcame various challenges during the project, which allowed us to showcase our innovation and problem-solving skills. Our ability to find creative solutions and adapt to unforeseen circumstances is something we are proud of. 💡🔧
 
 # What we learned
 Throughout the development of our project, we gained valuable insights and skills:
