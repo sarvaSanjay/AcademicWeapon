@@ -8,15 +8,15 @@ import {
     Route,
     Navigate,
 } from "react-router-dom";
+import FlashCards from "./FlashCards";
+import WebcamCapture from "./WebcamCapture";
+const SAMPLE= [{question:"Hi",answer:"1"},{question:"Bye",answer:"2"}]
 
 function App() {
   return (
-    <Router>
-        <Routes>
-            <Route path='/' element={<Home />}></Route>
-            <Route path='/Quiz' element={<Quiz />}></Route>
-         </Routes>
-    </Router>
+    <div>
+      <Home />
+    </div>
   );
 }
 

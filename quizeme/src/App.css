@@ -1,4 +1,4 @@
-.App {
+body {
     background-color: #61A6AB;}
 
 /*.App-logo {*/
@@ -106,4 +106,72 @@ footer{
     border-radius: 0;
     border: black;
     font-size: 1.5rem;
+}
+.card {
+    perspective: 1000px;
+    cursor: pointer;
+    transition: transform 0.5s;
+
+}
+
+.card.flipped{
+    transform: rotateY(180deg);
+}
+.card-back {
+    -webkit-transform: matrix(-1, 0, 0, 1, 0, 0);
+    -moz-transform: matrix(-1, 0, 0, 1, 0, 0);
+    -o-transform: matrix(-1, 0, 0, 1, 0, 0);
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+}
+.flashcard div{
+    background-color: #F6F6E9;
+    transform-style: preserve-3d;
+    height: 20rem;
+    width: 35rem;
+    align-items: center;
+    text-align: center;
+}
+
+.flashcards{
+    background-color: #61A6AB;
+}
+.flashcards div .card{
+   margin: auto;
+}
+.flashcards div .flashcard{
+    padding: 5rem;
+}
+
+.flashcards .heading{
+    font-size: 4rem;
+    font-family: Gagalin, serif;
+    text-align: center;
+}
+
+.webcam-container button{
+    background-color: #F6F6E9;
+    color: black;
+    font-family: 'Caveat', cursive;
+    border-radius: 0;
+    border: black;
+    font-size: 1.5rem;
+}
+
+.webcam-container button:hover {
+    box-shadow: inset 400px 0 0 0 black;
+    color: white;
+}
+
+.webcam-container {
+    background-color: #61A6AB;
+    padding: 5rem;
+    align-items: center;
+}
+
+.webcam-container .webcam-img{
+    margin-left: 25%;
+}
+.btn-cam .webcam-btn{
+    margin-top: 1rem;
+    margin-left: 45%;
 }

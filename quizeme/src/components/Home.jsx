@@ -4,12 +4,16 @@ import Navbar from 'react-bootstrap/Navbar';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+import FlashCards from "./FlashCards";
 import { useState, useEffect } from 'react';
 import { read_from_image } from '../ocr';
 function Home(){
     const [showGenerate, setShowGenerate] = useState(false);
     const [filename, setFilename] = useState('No file selected');
     const [file, setFile] = useState(null);
+    const [showFlashCard,setFlashCard]=useState(false)
+    const [sample,setSample]=useState(null)
+
     const handleFileUpload = () => {
         const input = document.createElement('input');
         input.type = 'file';
@@ -32,8 +36,7 @@ function Home(){
           .catch(error => {
             console.error('Recognition error:', error);
             });
-    }   
-
+    }
     return(
         <div className='home'>
             <div>
@@ -68,9 +71,9 @@ function Home(){
                     </p>
                 </div>
             </Container>
-            <div>
-
-            </div>
+            <footer>
+                   
+            </footer>
         </div>
     )
 }
