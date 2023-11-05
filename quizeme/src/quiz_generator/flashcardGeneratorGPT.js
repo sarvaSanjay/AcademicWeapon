@@ -1,4 +1,4 @@
-import OpenAI from "openai";
+const OpenAI = require('openai');
 
 const openai = new OpenAI();
 
@@ -124,4 +124,7 @@ function process(quizString){
     return flashcards;
 }
 
+module.exports = {
+    createFlashcards
+}
 console.log(await createFlashcards([data]));

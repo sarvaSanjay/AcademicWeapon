@@ -1,4 +1,4 @@
-import OpenAI from "openai";
+const OpenAI = require('openai');
 
 const openai = new OpenAI();
 
@@ -25,7 +25,7 @@ const data = `In the decades following its publication, the Chinese Room argumen
     weak AI, nor does it purport to show that no machine can think—Searle says that brains are machines, and brains
     think. The argument is directed at the view that formal computations on symbols can produce thought.`;
 
-export async function createQuiz(pages){
+async function createQuiz(pages){
     let quiz = []
     for(let i = 0; i < pages.length; i++){
         let page = pages[i];
@@ -166,6 +166,10 @@ function process(quizString){
         quiz.push(question);
     }
     return quiz;
+}
+
+module.exports = {
+    createQuiz
 }
 
 createQuiz([data]);
