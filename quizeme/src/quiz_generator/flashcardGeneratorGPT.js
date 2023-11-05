@@ -25,23 +25,23 @@ const data = `In the decades following its publication, the Chinese Room argumen
     weak AI, nor does it purport to show that no machine can think—Searle says that brains are machines, and brains
     think. The argument is directed at the view that formal computations on symbols can produce thought.`;
 
-export async function createQuiz(pages){
+export async function createFlashcards(pages){
     let quiz = []
     for(let i = 0; i < pages.length; i++){
         let page = pages[i];
-        let miniQuiz = await getQuizPerPage(page);
+        let miniQuiz = await getFlashcardsPerPage(page);
         quiz.push(...miniQuiz);
     }
+    
     return quiz;
 }
 
-async function getQuizPerPage(page) {
+async function getFlashcardsPerPage(page) {
   
-    const initialInstruction = `I want you to act like a quiz generator.
+    const initialInstruction = `I want you to act like a flashcard generator.
     I shall provide you with content in my next message and you will create at least 10
-    multiple choice questions based on the content I provided. Each choice should be on
-    a new line. Remember after you have listed the options for a question, you should tell me what the correct answer is on the next line. 
-    Do not return anything other than the questions and answers. Do you understand?`;
+    flashcards based on the content I provided. The answer to each flashcard should be on the line after the question.
+     Each flashcard should be separated by a new line. Do you understand?`;
 
     const confirmation = "Yes";
 
@@ -68,75 +68,35 @@ async function getQuizPerPage(page) {
     weak AI, nor does it purport to show that no machine can think—Searle says that brains are machines, and brains
     think. The argument is directed at the view that formal computations on symbols can produce thought.`;
 
-    const sampleResponse = `Question 1: Who presented the Chinese Room argument in his book "Minds, Brains and Science"?
-    A) Paul Churchland
-    B) Jerry Fodor
-    C) John Searle
-    D) Alan Turing 
-    Correct answer: C) John Searle
+    const sampleResponse = `1. What is the Chinese Room argument mainly targeted at?
+    - The view of "Strong AI"
     
-    Question 2: In which publication did the Chinese Room argument gain popularity in 1990?
-    A) Minds, Brains and Science
-    B) Scientific American
-    C) Rosenthal (ed.) 1991
-    D) Turing's Paper Machine
-    Correct answer: B) Scientific American
+    2. Who presented the Chinese Room argument in a book called "Minds, Brains and Science"?
+    - John Searle
     
-    Question 3: Which philosopher(s) wrote the responding article "Could a Machine Think?"?
-    A) Paul Churchland
-    B) Patricia Churchland
-    C) Both Paul and Patricia Churchland
-    D) Jerry Fodor
-    Correct answer: C) Both Paul and Patricia Churchland
+    3. In what year did Scientific American publish a debate on the Chinese Room argument?
+    - January 1990
     
-    Question 4: What is the main analogy used in the Chinese Room argument?
-    A) A human following English instructions
-    B) A computer following a program
-    C) Manipulating Chinese symbols
-    D) Turing's Paper Machine
-    Correct answer: A) A human following English instructions
+    4. Who wrote the responding article to Searle's contribution in Scientific American?
+    - Paul and Patricia Churchland
     
-    Question 5: What is the target of the Chinese Room argument?
-    A) Weak AI
-    B) Strong AI
-    C) Psychology and linguistics
-    D) Natural language understanding
-    Correct answer: B) Strong AI
+    5. What does the human in the Chinese Room simulation do with the Chinese symbols?
+    - Manipulate them according to English instructions
     
-    Question 6: According to Strong AI, computers can understand natural language and have which of the following capabilities?
-    A) Playing chess intelligently
-    B) Making clever moves
-    C) Understanding language
-    D) All of the above
-    Correct answer: D) All of the above
+    6. Does Searle's argument claim that no machine can think?
+    - No, Searle acknowledges that brains, which are machines, can think.
     
-    Question 7: What is the main difference between weak AI and strong AI?
-    A) Weak AI claims computers are intelligent, while strong AI does not
-    B) Weak AI claims computers can simulate mental abilities, while strong AI claims they can truly understand
-    C) Weak AI is based on syntax, while strong AI is based on semantics
-    D) Weak AI is practical, while strong AI is theoretical
-    Correct answer: B) Weak AI claims computers can simulate mental abilities, while strong AI claims they can truly understand
+    7. What is the difference between "Strong AI" and "weak AI"?
+    - Strong AI claims that computers can understand language and have mental capabilities like humans, while weak AI acknowledges that computers can simulate mental abilities without actual understanding or intelligence.
     
-    Question 8: The Chinese Room argument does NOT aim to prove that no machine can think but is specifically directed at:
-    A) Weak AI
-    B) Human cognition
-    C) Formal computations on symbols
-    D) Brains and their thinking capabilities
-    Correct answer: C) Formal computations on symbols
+    8. What does the Chinese Room scenario demonstrate about computers and understanding?
+    - That computers, by following a program and manipulating symbols based on their syntax alone, do not genuinely understand Chinese.
     
-    Question 9: Who did Searle say that brains think?
-    A) Computers
-    B) Humans
-    C) Machines
-    D) Animals
-    Correct answer: B) Humans
+    9. Which philosopher engaged in a published exchange about the Chinese Room argument with Searle?
+    - Jerry Fodor
     
-    Question 10: What does Searle acknowledge when arguing against Strong AI?
-    A) Computers are intelligent
-    B) Brains are machines
-    C) Formal computations can produce thought
-    D) Weak AI is obsolete
-    Correct answer: B) Brains are machines
+    10. Is the Chinese Room argument directed at weak AI or strong AI?
+    - It is specifically directed at strong AI, not weak AI.
     `
 
     const completion = await openai.chat.completions.create({
@@ -153,19 +113,15 @@ async function getQuizPerPage(page) {
 
 function process(quizString){
     const listOfStrings = quizString.split("\n");
-    let quiz = []
-    for(let i = 0; i<listOfStrings.length; i+=7){
-        let question = {
-            question: listOfStrings[i].trim().slice(listOfStrings[i].trim().indexOf(':') + 2),
-            optionA: listOfStrings[i + 1].trim().slice(3),
-            optionB: listOfStrings[i + 2].trim().slice(3),
-            optionC: listOfStrings[i + 3].trim().slice(3),
-            optionD: listOfStrings[i + 4].trim().slice(3),
-            correctAnswer: listOfStrings[i + 5].trim().slice(19)
+    let flashcards = []
+    for(let i = 0; i<listOfStrings.length; i+=3){
+        let flashcard = {
+            question: listOfStrings[i].trim().slice(listOfStrings[i].trim().indexOf('.') + 2),
+            answer: listOfStrings[i + 1].trim().slice(listOfStrings[i + 1].trim().indexOf('-') + 2),
         }
-        quiz.push(question);
+        flashcards.push(flashcard);
     }
-    return quiz;
+    return flashcards;
 }
 
-createQuiz([data]);
+console.log(await createFlashcards([data]));
